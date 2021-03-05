@@ -1,11 +1,19 @@
- #include<iostream>
+#include<iostream>
+#include<ctime>
 using std::cout;
 using std::cin;
+#define delimeter "\n--------------------------------------------------------------------------------------------------\n"
  using namespace std;
-  //#define MAGAZIN
-  //#define PRIMER
-  //#define PROGRAMM IFELSE
+  /*#define MAGAZIN*/
+  /*#define PRIMER*/
+  /*#define IFELSE*/
   /*#define KALKULATOR*/
+  /*#define PALINDROM*/
+ /* #define ARRAYS*/
+  #define FOR
+  /*#define DECIMAL*/
+  /*#define MATRIX*/
+ /* #define SIRIUS*/
 
  void main()
  {
@@ -50,7 +58,6 @@ using std::cin;
 
 #endif MAGAZIN
 
-
 #ifdef PRIMER
 	 int i = 3;
 	 i = ++i + ++i;
@@ -76,7 +83,7 @@ using std::cin;
 
 #endif  PRIMER
 
-#ifdef PROGRAMM IFELSE
+#ifdef  IFELSE
 
 /*1. ВЫУЧИТЬ ВСЮ ТЕОРИЮ : типы данных, операторы !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 *
@@ -286,7 +293,7 @@ else
 // {
    //  cout << "Рак xD" << endl;
 // }
-#endif PROGRAMM IFELSE
+#endif  IFELSE
 
 #ifdef KALKULATOR
 
@@ -306,6 +313,7 @@ else
 	 }
 #endif KALKULATOR
 
+#ifdef PALINDROM
 
 
 
@@ -319,35 +327,509 @@ else
 	 и счастливыйй билет
 	 5*/
 
-	 int number;
-	 int reverse=0;
-	 cout << "введите число"; cin >> number;
 
+	 ///*Полиндром*/
 
-    int buffer = number;
-    while (buffer>0)
-    {
-		reverse = buffer %10;
-		buffer /=10;
+//int number;
+//int reverse=0;
+//cout << "Введите число;" << endl;
 
+//int buffer = number;
 
-    }
+//while (buffer==0)
+//{
+//	reverse *=10
+//}
 
-  
+#endif  PALINDROM
 
-  
-
-
+#ifdef FOR
 
 
 
 
+	/* 1. Используя цикл for, написать программу, которая вычисляет факториал числа, введенного с клавиатуры
+
+		 5!= 1 * 2 * 3 * 4 * 5 = 120;
+
+	 2. Используя цикл for возвести указанное число, в указанную степень.Оснвание и показатель степени вводятся с клавиатуры;
+
+	 3. Используя цикл for, вывести на экран таблицу ASCII символов, разделенных пробелами, по 16 символов в строке;
+
+    */
+
+	 
+	                              //Факториал числа
+
+	 /*double factorial = 1;
+	 int n;
+	 cout << "Введите число"; cin >> n;
+
+	 for (int i = 1; i <= n; i++)
+	 {
+		 cout << i << "! = ";
+		 factorial = factorial * i;
+		 cout << factorial << endl;
+	 }
+	 cout << "Факториал числа " << n << " = " << factorial << endl;
+	 */
+
+	                            //Возводим число в степень
+
+	 //double a;    //Основание степени
+	 //int n;    //Показатель степени
+	 //double N = 1;//Степень
+	 //cout << "Введите основание степени"; cin >> a;
+	 //cout << "Введите показатель степени"; cin >> n;
+
+	 //if (n < 0)
+	 //{
+		// a = 1 / a;
+		// n = -n;
+	 //}
+
+	 //for (int i = 0; i < n; i++)
+	 //{
+		// N *= a;
+	 //}
+	 //cout << a << " ^ " << n << " = ";
+	 //cout << N << endl;
+
+	                                //256 аски символов
+
+	/* for (int i = 0; i < 256; i++)
+	 {
+		 if (i % 16 == 0)cout << endl;
+		 cout << (char)i << " ";
+	 }*/
+	
+#endif // FOR
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ifdef ARRAYS
+
+
+
+	 //1. Массив, заполненный случайными числами, отсортировать в порядке возрастания;
+
+
+	const int n = 10;
+	int arr[n];
+
+	
+	int minRand = 100;
+	int maxRand = 100;
+	do
+	{
+		cout << "Введите минимальное случайное число: "; cin >> minRand;
+		cout << "Введите максимальное случайное число: "; cin >> maxRand;
+	} while (minRand == maxRand);
+	if (minRand > maxRand)
+	{
+		int buffer = minRand;
+		minRand = maxRand;
+		maxRand = buffer;
+	}
+	minRand *= 100;
+	maxRand *= 100;
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % (maxRand - minRand) + minRand;
+		arr[i] /= 100;
+	}
+	
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+	cout << endl;
+	//////////////////////////сортировка////////////////////////
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; i++)
+		{
+			if (arr[j] < arr[i])
+			{
+				int buffer = arr[i];
+				arr[i] = arr[j];
+				arr[j] = buffer;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Привет";//??????????????????????????????????????????????????????
+	}
+	cout << endl;
+
+
+
+
+	/*2. Массив из 10ти элементов заполнить уникальными случайными числами, от 0 до 10;*/
+
+
+	 /*const int n = 10;
+	 int arr[n];
+	 for (int i = 0; i < n; i++)
+	 {
+		 bool unique;
+		 do
+		 {
+			 arr[i] = rand() % n;
+			 unique = true;
+			 for (int j = 0; j < i; j++)
+			 {
+				 if (arr[i]==arr[j])
+				 {
+					 unique = false;
+					 break;
+				 }
+			 }
+		 } while (!unique);
+	 }
+	 for (int i = 0; i < n; i++)
+	 {
+		 cout << arr[i] << "\t"; 
+	 }
+	 cout << endl;*/
+#endif  ARRAYS
+
+#ifdef DECIMAL
+
+
+
+
+
+	/* 1. Десятичное число, введенное с клавиатуры перевести в двоичную систему счисления;*/
+
+	 /*int decimal;
+	 cout << "Введите десятичное число"; cin >> decimal;
+	 const int n = 32;
+	 int bin[n] = {};
+	 int i = 0;
+
+	 while (decimal)
+	 {
+		 bin[i++] = decimal % 2;
+		 decimal /= 2;
+	 }
+	 for (--i; i >= 0; i--)
+	 {
+		 cout << bin[i];
+		 if (i % 8 == 0)cout << " ";
+		 if (i % 4 == 0)cout << " ";
+	 }
+	 cout << endl;*/
+
+
+	 /*2. Десятичное число, введенное с клавиатуры перевести в шестнадцатеричную систему счисления;*/
+
+	 /*int decimal;
+	 cout << "Введите десятичное число:"; cin >> decimal;
+	 const int n = 8;
+	 int hex[n] = {};
+	 int i = 0;
+	 while (decimal)
+	 {
+		 hex[i++] = decimal % 16;
+		 decimal /= 16;
+	 }
+	 for(int i = n - 1; i >= 0;i--)
+	 {
+		 if (hex[i] == 10)
+			 cout << "A";
+		 else if (hex[i] == 11)
+			 cout << "B";
+		 else if (hex[i] == 12)
+			 cout << "C";
+		 else if (hex[i] == 13)
+			 cout << "D";
+		 else if (hex[i] == 14)
+			 cout << "E";
+		 else if (hex[i] == 15)
+			 cout << "F";
+		 else
+			 cout << hex[i];
+
+
+
+
+
+
+
+
+	 }
+	 cout << endl;*/
+
+#endif  DECIMAL
+
+#ifdef MATRIX
+
+
+
+
+	//1. В проекте TheMatrix изменить вывод так, чтобы матрицы выводились в строку;
+	//2. В проект TheMatrix добавить код, который перемножает матрицы;
+	//3. Вычислить определитель матрицы 3 - го порядка методом Саррюса;
+
+	 const int n = 3;
+	 const int m = 3;
+	 int A[m][n];
+
+	 int B[m][n];
+	 int C[m][n];
+
+	 /*заполняем случайными числами*/
+	 for (int i = 0; i < m; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 A[i][j] = rand() % 10;
+		 }
+	 }
+
+	 for (int i = 0; i < m; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 B[i][j] = rand() % 10;
+		 }
+	 }
+	 //Сложение матриц
+	 for (int i = 0; i < m; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 C[i][j] = A[i][j] + B[i][j];
+		 }
+	 }
+
+	 // Умножение матриц
+	 int D[m][n]{};
+	 for (int i = 0; i < m; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 for (int k = 0; k < n; k++)
+			 {
+				 D[i][j] += A[i][k] * B[k][j];
+			 }
+		 }
+	 }
+
+	 /*выводим матрицы на экран*/
+	 //for (int i = 0; i < m; i++)
+	 //{
+		// for (int j = 0; j < n; j++)
+		// {
+		//	 cout << A[i][j] << "\t";
+		// }
+		// cout << endl;
+		// 
+	 //}
+	 //cout << endl;
+
+	 //for (int i = 0; i < m; i++)
+	 //{
+		// for (int j = 0; j < n; j++)
+		// {
+		//	 cout << B[i][j] << "\t";
+		// }
+		// cout << endl;
+		//
+	 //}
+	 //cout << endl;
+
+	 //for (int i = 0; i < m; i++)
+	 //{
+		// for (int j = 0; j < n; j++)
+		// {
+		//	 cout << C[i][j] << "\t";
+		// }
+		// cout << endl;
+
+	 //}
+	 //cout << endl;
+
+	
+	cout << "Сложение матриц:"<<endl;
+	
+	 for (int i = 0; i < m; i++)
+	 {
+		 
+		 cout << "\t|";
+		 for (int j = 0; j < n; j++)
+		 {
+			 cout << A[i][j];
+			 if (j != n - 1)cout << "\t";
+		 }
+	     cout << "|\t +\t";
+	     cout << "|";
+
+		 
+	     for (int j = 0; j < n; j++)
+	     {
+		    cout << B[i][j];
+		    if (j != n - 1)cout << "\t";
+	     }
+		 cout << "|\t =\t";
+		 cout << "|";
+
+		 
+		 for (int j = 0; j < n; j++)
+		 {
+			 cout << C[i][j];
+			 if (j != n - 1)cout << "\t";
+		 }
+		 cout << "|\n";
+		
+
+		 
+		 
+	 }
+	 cout << delimeter;
+	 cout << "Умножение матриц:" << endl;
+	 for (int i = 0; i < m; i++)
+	 {
+		 
+		 cout << "\t|";
+		 for (int j = 0; j < n; j++)
+		 {
+			 cout << A[i][j];
+			 if (j != n - 1)cout << "\t";
+		 }
+		 cout << "|\t *\t";
+		 cout << "|";
+
+		 
+		 for (int j = 0; j < n; j++)
+		 {
+			 cout << B[i][j];
+			 if (j != n - 1)cout << "\t";
+		 }
+		 cout << "|\t =\t";
+		 cout << "|";
+
+		 
+		 for (int j = 0; j < n; j++)
+		 {
+			 cout << D[i][j];
+			 if (j != n - 1)cout << "\t";
+		 }
+		 cout << "|\n";
+
+
+
+
+	 }
+#endif MATRIX
+
+#ifdef SIRIUS
+
+
+
+	 const int n = 3;
+	 int A[n][n] =
+	 {
+
+	  {1, 2 ,3},
+	  {4, 5, 6},
+	  {7, 8, 9}
+	 };
+	 for (int i = 0; i < n; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 A[i][j] = rand() % 10;
+		 }
+	 }
+	 cout << "Исходная матрица\n";
+	 for (int i = 0; i < n; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 cout << A[i][j] << "\t";
+
+		 }
+		 cout << endl;
+
+	 } 
+
+	 int B[n][n * 2];
+	 for (int i = 0; i < n; i++)
+	 {
+		 for (int j = 0; j < n; j++)
+		 {
+			 B[i][j] = B[i][j + n] = A[i][j];
+		 }
+	 }
+	 cout << "Расширенная матрица\n";
+     for (int i = 0; i < n; i++)
+	 {
+		 for (int j = 0; j < n * 2; j++)
+		 {
+			cout << B[i][j] << "\t";
+		 }
+		 cout << endl;
+	 }
+
+	 int summ_main_diag = 0;
+	 int multiplay;
+	 for (int i = 0; i < n; i++)
+	 {
+		 multiplay = 1;
+		 for (int j = 0; j < n; j++)
+		 {
+			 multiplay *= B[j][i + j];
+		 }
+		 summ_main_diag += multiplay;
+	 }
+	 cout << "Сумма произведений элементов главной диагонали  " << summ_main_diag << endl;
+
+	 //Вспомогательная диагональ
+	 int summ_aux_diag = 0;
+	 for (int i = 0; i < n; i++)
+	 {
+		 multiplay = 1;
+		 for (int j = 0; j < n; j++)
+		 {
+			 multiplay *= B[n - 1 - j][j + i];
+		 }
+		 summ_aux_diag += multiplay;
+	 }
+	 cout << "Сумма произведений элементов главной диагонали  " << summ_aux_diag << endl;
+	 int determinant = summ_main_diag - summ_aux_diag;
+	 cout << "Определитель матрицы :" << determinant << endl;
+	
+
+#endif SIRIUS
 
  
 
 
  }
-
 
 
 
